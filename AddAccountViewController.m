@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.peopleInvited = @[];
+    self.peopleInvited = [NSMutableArray arrayWithArray:@[@""]];
     // Do any additional setup after loading the view.
 }
 
@@ -125,9 +125,10 @@
             
         case 2:
         {
-            if (indexPath.row>self.peopleInvited.count-1) {
+            if (indexPath.row<self.peopleInvited.count) {
                 cell.textLabel.text = @"Phone number";
-                cell.detailTextLabel.text = self.peopleInvited[indexPath.row];
+                NSString * number = self.peopleInvited[indexPath.row];
+                cell.detailTextLabel.text = number.length>0 ? number : @"Add phone number";
             }else{
                 cell.textLabel.text = @"Add more people";
             }
