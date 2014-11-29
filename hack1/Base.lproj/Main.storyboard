@@ -43,32 +43,39 @@
                                 <rect key="frame" x="0.0" y="312" width="320" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add another" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbZ-qS-Jrp">
-                                        <rect key="frame" x="112" y="18" width="97.5" height="21"/>
+                                        <rect key="frame" x="111" y="18" width="98" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="48A-Ue-Gys"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fu-zI-22t">
-                                        <rect key="frame" x="134" y="56" width="60" height="64"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPt-Bw-azO">
+                                        <rect key="frame" x="123" y="52" width="76" height="72"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPercent" translatesAutoresizingMaskIntoConstraints="NO" id="D2t-XF-v4o">
+                                                <rect key="frame" x="3" y="0.0" width="70" height="72"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="64" id="I7R-21-5e6"/>
-                                            <constraint firstAttribute="width" constant="60" id="s7z-ai-Dhj"/>
+                                            <constraint firstItem="D2t-XF-v4o" firstAttribute="top" secondItem="gPt-Bw-azO" secondAttribute="top" id="9dy-mx-arv"/>
+                                            <constraint firstAttribute="bottom" secondItem="D2t-XF-v4o" secondAttribute="bottom" id="BIa-eb-zBO"/>
+                                            <constraint firstItem="D2t-XF-v4o" firstAttribute="leading" secondItem="gPt-Bw-azO" secondAttribute="leading" constant="3" id="MUq-Yj-4Yq"/>
+                                            <constraint firstAttribute="trailing" secondItem="D2t-XF-v4o" secondAttribute="trailing" constant="3" id="bfw-Fq-SJe"/>
+                                            <constraint firstAttribute="width" constant="75.5" id="nee-02-AOw"/>
                                         </constraints>
-                                        <state key="normal" image="addPercent">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="BbZ-qS-Jrp" firstAttribute="top" secondItem="RCo-iM-Glq" secondAttribute="topMargin" constant="10" id="73B-mP-tTa"/>
                                     <constraint firstAttribute="height" constant="200" id="Ap1-b6-Olb"/>
-                                    <constraint firstAttribute="centerX" secondItem="3fu-zI-22t" secondAttribute="centerX" constant="-3.75" id="DYw-WU-OEt"/>
-                                    <constraint firstItem="3fu-zI-22t" firstAttribute="top" secondItem="BbZ-qS-Jrp" secondAttribute="bottom" constant="17" id="IJ1-39-1Dm"/>
+                                    <constraint firstAttribute="bottom" secondItem="gPt-Bw-azO" secondAttribute="bottom" constant="76" id="BLJ-bX-EbG"/>
                                     <constraint firstItem="BbZ-qS-Jrp" firstAttribute="centerX" secondItem="RCo-iM-Glq" secondAttribute="centerX" id="WPu-1z-isw"/>
+                                    <constraint firstAttribute="centerX" secondItem="gPt-Bw-azO" secondAttribute="centerX" id="b4s-v1-xwY"/>
+                                    <constraint firstItem="gPt-Bw-azO" firstAttribute="top" secondItem="BbZ-qS-Jrp" secondAttribute="bottom" constant="13" id="rMt-aV-J9U"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnD-7L-UVr">
@@ -94,6 +101,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="addMoneyDragger" destination="gPt-Bw-azO" id="7Bk-r5-DH1"/>
                         <outlet property="savingContent" destination="jnD-7L-UVr" id="aZy-mp-0Ip"/>
                     </connections>
                 </viewController>

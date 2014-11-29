@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PNChart.h"
 #import <Colours/Colours.h>
+#import "OBDragDrop.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <OBOvumSource, OBDropZone, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *savingContent;
+@property (weak, nonatomic) IBOutlet UIView *addMoneyDragger;
+@property PNPieChart *pieChart;
 
 @end
 

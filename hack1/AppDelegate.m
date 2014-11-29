@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Colours/Colours.h>
+#import <OBDragDrop/OBDragDrop.h>
 
 @interface AppDelegate ()
 
@@ -23,6 +24,9 @@
     [[UINavigationBar appearance] setTintColor:[UIColor pinkPiggy]];
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor pinkPiggy]}];
+    
+    OBDragDropManager *manager = [OBDragDropManager sharedManager];
+    [manager prepareOverlayWindowUsingMainWindow:self.window];
     return YES;
 }
 
