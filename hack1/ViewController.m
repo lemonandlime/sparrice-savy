@@ -21,21 +21,6 @@
     navBarLogoImageView.frame = CGRectMake(0, 0, 60, 21);
     navBarLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.navigationItem setTitleView: navBarLogoImageView];
-    //For PieChart
-    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:10 color:PNRed],
-                       [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
-                       [PNPieChartDataItem dataItemWithValue:40 color:[UIColor greenHappy] description:@"GOOL I/O"],
-                       ];
-    
-    
-    
-    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 155.0, 240.0, 240.0) items:items];
-    pieChart.descriptionTextColor = [UIColor whiteColor];
-    pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
-    [pieChart strokeChart];
-    
-    
-    [self.view addSubview:pieChart];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -46,6 +31,26 @@
     self.navigationController.navigationBar.translucent = YES;
     
     
+}
+
+-(void)viewDidLayoutSubviews{
+    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:58 color:[UIColor greenHappy] description:@"58%"],
+                       [PNPieChartDataItem dataItemWithValue:42 color:[UIColor lightGrayColor] description:@"42%"],
+                       ];
+    
+    
+    //PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 40.0, 240.0, 240.0) items:items];
+    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(60, 0, self.savingContent.frame.size.width-120, self.savingContent.frame.size.width-120) items:items];
+    
+    //pieChart.center = self.savingContent.center;
+    pieChart.descriptionTextColor = [UIColor whiteColor];
+    pieChart.descriptionTextFont  = [UIFont boldSystemFontOfSize:31.0];
+    [pieChart strokeChart];
+
+    [self.savingContent addSubview:pieChart];
+    
+    
+
 }
 
 @end
