@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PNChart.h"
+#import <Colours/Colours.h>
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *savingContent;
 
 @end
 

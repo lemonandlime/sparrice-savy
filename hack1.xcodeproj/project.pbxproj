@@ -15,6 +15,11 @@
 		DFA4812F1A28E31200198C41 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA4812E1A28E31200198C41 /* Images.xcassets */; };
 		DFA481321A28E31200198C41 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA481301A28E31200198C41 /* LaunchScreen.xib */; };
 		DFA4813E1A28E31300198C41 /* hack1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA4813D1A28E31300198C41 /* hack1Tests.m */; };
+		DFF22A4A1A292D450071D242 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A491A292D450071D242 /* QuartzCore.framework */; };
+		DFF22A4C1A292D4E0071D242 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A4B1A292D4E0071D242 /* CoreGraphics.framework */; };
+		DFF22A4E1A292D5B0071D242 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A4D1A292D5B0071D242 /* UIKit.framework */; };
+		DFF22A501A292D690071D242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A4F1A292D690071D242 /* Foundation.framework */; };
+		F9B06B3708C0649B9A39CFEF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 096DA8EBC555A886D89AE0C0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		096DA8EBC555A886D89AE0C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		88370049C858031E7E8119E4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DFA4811B1A28E31200198C41 /* hack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA4811F1A28E31200198C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA481201A28E31200198C41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +50,10 @@
 		DFA481371A28E31300198C41 /* hack1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hack1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA4813C1A28E31300198C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA4813D1A28E31300198C41 /* hack1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hack1Tests.m; sourceTree = "<group>"; };
+		DFF22A491A292D450071D242 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DFF22A4B1A292D4E0071D242 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DFF22A4D1A292D5B0071D242 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DFF22A4F1A292D690071D242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +61,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFF22A501A292D690071D242 /* Foundation.framework in Frameworks */,
+				DFF22A4E1A292D5B0071D242 /* UIKit.framework in Frameworks */,
+				DFF22A4C1A292D4E0071D242 /* CoreGraphics.framework in Frameworks */,
+				DFF22A4A1A292D450071D242 /* QuartzCore.framework in Frameworks */,
+				F9B06B3708C0649B9A39CFEF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +79,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0ADF2B26B571F30006D6CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFF22A4F1A292D690071D242 /* Foundation.framework */,
+				DFF22A4D1A292D5B0071D242 /* UIKit.framework */,
+				DFF22A4B1A292D4E0071D242 /* CoreGraphics.framework */,
+				DFF22A491A292D450071D242 /* QuartzCore.framework */,
+				096DA8EBC555A886D89AE0C0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8401B2DC027281F0AECF6C05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */,
+				88370049C858031E7E8119E4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DFA481121A28E31200198C41 = {
 			isa = PBXGroup;
 			children = (
 				DFA4811D1A28E31200198C41 /* hack1 */,
 				DFA4813A1A28E31300198C41 /* hack1Tests */,
 				DFA4811C1A28E31200198C41 /* Products */,
+				8401B2DC027281F0AECF6C05 /* Pods */,
+				1C0ADF2B26B571F30006D6CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFA481411A28E31300198C41 /* Build configuration list for PBXNativeTarget "hack1" */;
 			buildPhases = (
+				76E198055886970A7A8F65A2 /* Check Pods Manifest.lock */,
 				DFA481171A28E31200198C41 /* Sources */,
 				DFA481181A28E31200198C41 /* Frameworks */,
 				DFA481191A28E31200198C41 /* Resources */,
+				DBA3E44A6B875337C47CF226 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +258,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76E198055886970A7A8F65A2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBA3E44A6B875337C47CF226 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DFA481171A28E31200198C41 /* Sources */ = {
@@ -345,6 +420,7 @@
 		};
 		DFA481421A28E31300198C41 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = hack1/Info.plist;
@@ -355,6 +431,7 @@
 		};
 		DFA481431A28E31300198C41 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88370049C858031E7E8119E4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = hack1/Info.plist;
@@ -416,6 +493,7 @@
 				DFA481431A28E31300198C41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFA481441A28E31300198C41 /* Build configuration list for PBXNativeTarget "hack1Tests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +502,7 @@
 				DFA481461A28E31300198C41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
