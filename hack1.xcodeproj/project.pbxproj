@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C41A2A3248002C38AD /* StartViewController.m */; };
 		DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */; };
+		DF88C6CB1A2A58C4002C38AD /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6CA1A2A58C4002C38AD /* BaseViewController.m */; };
+		DF88C6CE1A2A5A6C002C38AD /* AddAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6CD1A2A5A6C002C38AD /* AddAccountViewController.m */; };
 		DFA481211A28E31200198C41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA481201A28E31200198C41 /* main.m */; };
 		DFA481241A28E31200198C41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA481231A28E31200198C41 /* AppDelegate.m */; };
 		DFA481271A28E31200198C41 /* hack1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFA481251A28E31200198C41 /* hack1.xcdatamodeld */; };
@@ -42,6 +44,10 @@
 		DF88C6C41A2A3248002C38AD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewCell.h; sourceTree = "<group>"; };
 		DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewCell.m; sourceTree = "<group>"; };
+		DF88C6C91A2A58C4002C38AD /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		DF88C6CA1A2A58C4002C38AD /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		DF88C6CC1A2A5A6C002C38AD /* AddAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountViewController.h; sourceTree = "<group>"; };
+		DF88C6CD1A2A5A6C002C38AD /* AddAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountViewController.m; sourceTree = "<group>"; };
 		DFA4811B1A28E31200198C41 /* hack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA4811F1A28E31200198C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA481201A28E31200198C41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,6 +115,10 @@
 		DFA481121A28E31200198C41 = {
 			isa = PBXGroup;
 			children = (
+				DF88C6CC1A2A5A6C002C38AD /* AddAccountViewController.h */,
+				DF88C6CD1A2A5A6C002C38AD /* AddAccountViewController.m */,
+				DF88C6C91A2A58C4002C38AD /* BaseViewController.h */,
+				DF88C6CA1A2A58C4002C38AD /* BaseViewController.m */,
 				DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */,
 				DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */,
 				DFA4811D1A28E31200198C41 /* hack1 */,
@@ -223,6 +233,7 @@
 				TargetAttributes = {
 					DFA4811A1A28E31200198C41 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = L2SW8H3W2S;
 					};
 					DFA481361A28E31300198C41 = {
 						CreatedOnToolsVersion = 6.1;
@@ -309,9 +320,11 @@
 			files = (
 				DFA481241A28E31200198C41 /* AppDelegate.m in Sources */,
 				DFA481271A28E31200198C41 /* hack1.xcdatamodeld in Sources */,
+				DF88C6CE1A2A5A6C002C38AD /* AddAccountViewController.m in Sources */,
 				DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */,
 				DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */,
 				DFA4812A1A28E31200198C41 /* ViewController.m in Sources */,
+				DF88C6CB1A2A58C4002C38AD /* BaseViewController.m in Sources */,
 				DFA481211A28E31200198C41 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,9 +448,12 @@
 			baseConfigurationReference = 85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = hack1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -446,9 +462,12 @@
 			baseConfigurationReference = 88370049C858031E7E8119E4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = hack1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

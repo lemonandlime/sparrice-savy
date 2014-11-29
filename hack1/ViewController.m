@@ -16,10 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView * navBarLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NavBarLogo"]];
-    navBarLogoImageView.frame = CGRectMake(0, 0, 60, 21);
-    navBarLogoImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.navigationItem setTitleView: navBarLogoImageView];
     
     OBDragDropManager *dragDropManager = [OBDragDropManager sharedManager];
     self.savingContent.dropZoneHandler = self;
@@ -28,15 +24,6 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    
-}
 
 -(void)viewDidLayoutSubviews{
     if (!self.pieChart) {

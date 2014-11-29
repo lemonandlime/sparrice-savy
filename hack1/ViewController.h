@@ -10,8 +10,9 @@
 #import "PNChart.h"
 #import <Colours/Colours.h>
 #import "OBDragDrop.h"
+#import "BaseViewController.h"
 
-@interface ViewController : UIViewController <OBOvumSource, OBDropZone, UIPopoverControllerDelegate>
+@interface ViewController : BaseViewController <OBOvumSource, OBDropZone, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *savingContent;
 @property (weak, nonatomic) IBOutlet UIView *addMoneyDragger;
