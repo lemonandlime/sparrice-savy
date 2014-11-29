@@ -22,6 +22,7 @@
     [self.navigationItem setTitleView: navBarLogoImageView];
     
     OBDragDropManager *dragDropManager = [OBDragDropManager sharedManager];
+    self.savingContent.dropZoneHandler = self;
     UIGestureRecognizer *recognizer = [dragDropManager createDragDropGestureRecognizerWithClass:[UIPanGestureRecognizer class] source:self];
     [self.addMoneyDragger addGestureRecognizer:recognizer];
 
@@ -72,11 +73,12 @@
     CGRect frame = [sourceView convertRect:sourceView.bounds toView:sourceView.window];
     frame = [window convertRect:frame fromWindow:sourceView.window];
     
-    UIView *dragView = [[UIView alloc] initWithFrame:frame];
+    UIImageView *dragView = [[UIImageView alloc] initWithFrame:frame];
+    dragView.image = [UIImage imageNamed:@"addPercent"];
     dragView.backgroundColor = sourceView.backgroundColor;
-    dragView.layer.cornerRadius = 5.0;
-    dragView.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:1.0].CGColor;
-    dragView.layer.borderWidth = 1.0;
+    //dragView.layer.cornerRadius = 5.0;
+    //dragView.layer.borderColor = [UIColor colorWithWhite:0.0 alpha:1.0].CGColor;
+    //dragView.layer.borderWidth = 1.0;
     dragView.layer.masksToBounds = YES;
     return dragView;
 }
@@ -110,7 +112,7 @@ static NSInteger kLabelTag = 2323;
     
     CGRect labelFrame = CGRectMake(ovum.dragView.bounds.origin.x, ovum.dragView.bounds.origin.y, ovum.dragView.bounds.size.width, ovum.dragView.bounds.size.height / 2);
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-    label.text = @"Ovum entered";
+    //label.text = @"Ovum entered";
     label.tag = kLabelTag;
     label.backgroundColor = [UIColor clearColor];
     label.opaque = NO;
@@ -119,7 +121,7 @@ static NSInteger kLabelTag = 2323;
     label.textColor = [UIColor whiteColor];
     [ovum.dragView addSubview:label];
     
-    return OBDropActionMove;
+    return OBDropActionDelete;
 }
 
 -(OBDropAction) ovumMoved:(OBOvum*)ovum inView:(UIView*)view atLocation:(CGPoint)location
@@ -134,21 +136,19 @@ static NSInteger kLabelTag = 2323;
         UIView *itemView = [self.view viewWithTag:[ovum.dataObject integerValue]];
         if (false)
         {
-            view.layer.borderColor = [UIColor colorWithRed:hiphopopotamus green:0.0 blue:0.0 alpha:1.0].CGColor;
+            view.layer.borderColor = [UIColor pinkPiggy].CGColor;
             view.layer.borderWidth = 5.0;
             
-            UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
-            label.text = @"Cannot Drop Here";
             
             return OBDropActionNone;
         }
     }
     
-    view.layer.borderColor = [UIColor colorWithRed:0.0 green:hiphopopotamus blue:0.0 alpha:1.0].CGColor;
+    view.layer.borderColor = [UIColor pinkPiggy].CGColor;
     view.layer.borderWidth = 5.0;
     
-    UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
-    label.text = [NSString stringWithFormat:@"Ovum at %@", NSStringFromCGPoint(location)];
+    //UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
+    //label.text = [NSString stringWithFormat:@"Ovum at %@", NSStringFromCGPoint(location)];
     
     return OBDropActionMove;
 }
@@ -166,6 +166,15 @@ static NSInteger kLabelTag = 2323;
 
 -(void) ovumDropped:(OBOvum*)ovum inView:(UIView*)view atLocation:(CGPoint)location
 {
+    
+    if (location.y<300) {
+        [UIView animateWithDuration:.3 animations:^(void) {
+            self.pieChart.transform = CGAffineTransformScale(view.transform, 1.2, 1.2);
+        } completion:^(BOOL boolean){
+            [UIView animateWithDuration:.3 animations:^(void) {
+                self.pieChart.transform = CGAffineTransformScale(view.transform, 1.0, 1.0);
+            }];}];
+    }
 //    NSLog(@"Ovum<0x%x> %@ Dropped", (int)ovum, ovum.dataObject);
 //    
 //    view.layer.borderColor = [UIColor clearColor].CGColor;
@@ -174,20 +183,20 @@ static NSInteger kLabelTag = 2323;
 //    UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
 //    [label removeFromSuperview];
 //    
-//    if ([ovum.dataObject isKindOfClass:[NSNumber class]])
-//    {
-//        UIView *itemView = [self.view viewWithTag:[ovum.dataObject integerValue]];
-//        if (itemView)
-//        {
-//            [itemView removeFromSuperview];
-//            [leftViewContents removeObject:itemView];
-//            
-//            NSInteger insertionIndex = [self insertionIndexForLocation:location withContents:rightViewContents];
-//            [rightView insertSubview:itemView atIndex:insertionIndex];
-//            [rightViewContents insertObject:itemView atIndex:insertionIndex];
-//            
-//        }
-//    }
+    if ([ovum.dataObject isKindOfClass:[NSNumber class]])
+    {
+        UIView *itemView = [self.view viewWithTag:[ovum.dataObject integerValue]];
+        if (itemView)
+        {
+            //[itemView removeFromSuperview];
+            //[leftViewContents removeObject:itemView];
+            
+            //NSInteger insertionIndex = [self insertionIndexForLocation:location withContents:rightViewContents];
+            //[rightView insertSubview:itemView atIndex:insertionIndex];
+            //[rightViewContents insertObject:itemView atIndex:insertionIndex];
+            
+        }
+    }
 //    else if ([ovum.dataObject isKindOfClass:[UIColor class]])
 //    {
 //        // An item from AdditionalSourcesViewController
@@ -202,30 +211,7 @@ static NSInteger kLabelTag = 2323;
 
 -(void) handleDropAnimationForOvum:(OBOvum*)ovum withDragView:(UIView*)dragView dragDropManager:(OBDragDropManager*)dragDropManager
 {
-//    UIView *itemView = nil;
-//    if ([ovum.dataObject isKindOfClass:[NSNumber class]])
-//        itemView = [self.view viewWithTag:[ovum.dataObject integerValue]];
-//    else if ([ovum.dataObject isKindOfClass:[UIColor class]])
-//        itemView = [rightViewContents lastObject];
-//    
-//    if (itemView)
-//    {
-//        // Set the initial position of the view to match that of the drag view
-//        CGRect dragViewFrameInTargetWindow = [ovum.dragView.window convertRect:dragView.frame toWindow:rightView.window];
-//        dragViewFrameInTargetWindow = [rightView convertRect:dragViewFrameInTargetWindow fromView:rightView.window];
-//        itemView.frame = dragViewFrameInTargetWindow;
-//        
-//        CGRect viewFrame = [ovum.dragView.window convertRect:itemView.frame fromView:itemView.superview];
-//        
-//        void (^animation)() = ^{
-//            dragView.frame = viewFrame;
-//            
-//            [self layoutScrollView:leftView withContents:leftViewContents];
-//            [self layoutScrollView:rightView withContents:rightViewContents];
-//        };
-//        
-//        [dragDropManager animateOvumDrop:ovum withAnimation:animation completion:nil];
-//    }
+
 }
 
 

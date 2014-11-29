@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C41A2A3248002C38AD /* StartViewController.m */; };
+		DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */; };
 		DFA481211A28E31200198C41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA481201A28E31200198C41 /* main.m */; };
 		DFA481241A28E31200198C41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA481231A28E31200198C41 /* AppDelegate.m */; };
 		DFA481271A28E31200198C41 /* hack1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFA481251A28E31200198C41 /* hack1.xcdatamodeld */; };
@@ -36,6 +38,10 @@
 		096DA8EBC555A886D89AE0C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		88370049C858031E7E8119E4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		DF88C6C31A2A3248002C38AD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		DF88C6C41A2A3248002C38AD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewCell.h; sourceTree = "<group>"; };
+		DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewCell.m; sourceTree = "<group>"; };
 		DFA4811B1A28E31200198C41 /* hack1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hack1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA4811F1A28E31200198C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA481201A28E31200198C41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +109,8 @@
 		DFA481121A28E31200198C41 = {
 			isa = PBXGroup;
 			children = (
+				DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */,
+				DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */,
 				DFA4811D1A28E31200198C41 /* hack1 */,
 				DFA4813A1A28E31300198C41 /* hack1Tests */,
 				DFA4811C1A28E31200198C41 /* Products */,
@@ -132,6 +140,8 @@
 				DFA481301A28E31200198C41 /* LaunchScreen.xib */,
 				DFA481251A28E31200198C41 /* hack1.xcdatamodeld */,
 				DFA4811E1A28E31200198C41 /* Supporting Files */,
+				DF88C6C31A2A3248002C38AD /* StartViewController.h */,
+				DF88C6C41A2A3248002C38AD /* StartViewController.m */,
 			);
 			path = hack1;
 			sourceTree = "<group>";
@@ -299,6 +309,8 @@
 			files = (
 				DFA481241A28E31200198C41 /* AppDelegate.m in Sources */,
 				DFA481271A28E31200198C41 /* hack1.xcdatamodeld in Sources */,
+				DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */,
+				DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */,
 				DFA4812A1A28E31200198C41 /* ViewController.m in Sources */,
 				DFA481211A28E31200198C41 /* main.m in Sources */,
 			);
