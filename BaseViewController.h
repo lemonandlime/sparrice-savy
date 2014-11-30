@@ -12,4 +12,6 @@
 @interface BaseViewController : UIViewController <DownloadManagerDelegate>
 -(void) downloadFinished:(NSData*)data withTag:(int)tag;
 -(double)percentFinished:(NSDictionary *)socialSaving;
+
+@property NSString * userId;
 @end

@@ -23,6 +23,9 @@
     
     
     [super viewDidLoad];
+    if (!self.userId || self.userId.length<1) {
+        self.userId = @"60014";
+    }
     UIImageView * navBarLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NavBarLogo"]];
     navBarLogoImageView.frame = CGRectMake(0, 0, 60, 21);
     navBarLogoImageView.contentMode = UIViewContentModeScaleAspectFit;

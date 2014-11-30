@@ -27,6 +27,14 @@ static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBa
         self.socialAccounts = self.savingsinfo[@"social_accounts"];
         [self.tableview reloadData];
         
+        NSArray * users = self.socialAccounts[0][@"users"];
+        
+        for (NSDictionary * user in users) {
+            if ([(NSString *)user[@"user_id"] isEqualToString:self.userId]) {
+                self.transactionAmountLabel.text = [NSString stringWithFormat:@"%@ kr", user[@"transaction_account"]];
+            }
+        }
+        
     }
 }
 
@@ -38,6 +46,7 @@ static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBa
     }
     
     if (!self.savingsinfo) {
+        self.transactionAmountLabel.text = @"";
         DownloadManager  * DM = [[DownloadManager alloc] initWithDelegate:self];
         NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
         [DM startDownloadWithRequest:request tag:1];

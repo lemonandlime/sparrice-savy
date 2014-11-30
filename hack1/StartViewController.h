@@ -13,6 +13,7 @@
 
 @interface StartViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UILabel *transactionAmountLabel;
 @property NSDictionary * savingsinfo;
 @property NSArray * socialAccounts;
 @end
