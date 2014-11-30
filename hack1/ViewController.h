@@ -13,9 +13,11 @@
 #import "BaseViewController.h"
 
 @interface ViewController : BaseViewController <OBOvumSource, OBDropZone, UIPopoverControllerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *transactionAccountLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *savingContent;
 @property (weak, nonatomic) IBOutlet UIView *addMoneyDragger;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property PNPieChart *pieChart;
 @property NSMutableDictionary * socialSaving;
 

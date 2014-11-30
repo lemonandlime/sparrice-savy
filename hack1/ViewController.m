@@ -18,12 +18,11 @@ BOOL hasChanges;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self updateLabels];
     OBDragDropManager *dragDropManager = [OBDragDropManager sharedManager];
     self.savingContent.dropZoneHandler = self;
     UIGestureRecognizer *recognizer = [dragDropManager createDragDropGestureRecognizerWithClass:[UIPanGestureRecognizer class] source:self];
     [self.addMoneyDragger addGestureRecognizer:recognizer];
-
 }
 
 
@@ -214,6 +213,15 @@ static NSInteger kLabelTag = 2323;
     double newSavedSum = [presentSaved doubleValue]+addingSum;
     self.socialSaving[@"money_saved"] = [NSNumber numberWithDouble:newSavedSum];
     
+    NSArray * users = self.socialSaving[@"users"];
+    
+    for (NSMutableDictionary * user in users) {
+        if ([(NSString *)user[@"user_id"] isEqualToString:self.userId]) {
+            double presentTransAmounth = [user[@"transaction_account"] doubleValue];
+            user[@"transaction_account"] = [NSNumber numberWithDouble:(presentTransAmounth-addingSum)];
+        }
+    }
+    
     if (self.pieChart) {
         [self.pieChart removeFromSuperview];
         self.pieChart = nil;
@@ -238,9 +246,20 @@ static NSInteger kLabelTag = 2323;
     
     [self.savingContent addSubview:self.pieChart];
     [self.view sendSubviewToBack:self.savingContent];
+    
+    [self updateLabels];
 }
 
-
+-(void)updateLabels{
+    self.progressLabel.text = [NSString stringWithFormat:@"%@ of %@",self.socialSaving[@"money_saved"],self.socialSaving[@"goal"]];
+    NSArray * users = self.socialSaving[@"users"];
+    
+    for (NSDictionary * user in users) {
+        if ([(NSString *)user[@"user_id"] isEqualToString:self.userId]) {
+            self.transactionAccountLabel.text = [NSString stringWithFormat:@"%@ kr", user[@"transaction_account"]];
+        }
+    }
+}
 
 
 @end

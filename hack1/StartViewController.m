@@ -21,7 +21,7 @@ static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBa
 -(void) downloadFinished:(NSData*)data withTag:(int)tag{
     if (data) {
         NSError * error;
-        NSDictionary * jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSDictionary * jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers error:&error];
         NSLog(@"URL Response :  %@ error %@",jsonData, error);
         self.savingsinfo = jsonData[@"Result"];
         self.socialAccounts = self.savingsinfo[@"social_accounts"];
@@ -112,7 +112,9 @@ static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBa
 //    //[UIView animateWithDuration:.3 animations:^{
 //        cell.overlay.frame = rect;
 //    //}];
-    
+    if (indexPath.row == 1) {
+        cell.imageBackground.image = [UIImage imageNamed:@"Apartment"];
+    }
     cell.subTitle.text = [NSString stringWithFormat:@"%.d%@",(int)(100*percentProgress),@"%Saved"];
     return cell;
 }
