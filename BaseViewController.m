@@ -14,7 +14,14 @@
 
 @implementation BaseViewController
 
+-(void) downloadFinished:(NSData*)data withTag:(int)tag{
+    
+}
+
+
 - (void)viewDidLoad {
+    
+    
     [super viewDidLoad];
     UIImageView * navBarLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NavBarLogo"]];
     navBarLogoImageView.frame = CGRectMake(0, 0, 60, 21);
@@ -31,14 +38,13 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(double)percentFinished:(NSDictionary *)socialSaving{
+    NSNumber * moneySaved = socialSaving[@"money_saved"];
+    NSNumber * goal = socialSaving[@"goal"];
+    
+    double percentProgress = [moneySaved doubleValue]/[goal doubleValue];
+    return percentProgress;
 }
-*/
+
 
 @end

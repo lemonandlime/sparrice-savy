@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "InputViewController.h"
 
 @interface AddAccountViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray * peopleInvited;
+@property NSString * accountName;
+@property NSDate * accountDate;
+@property NSNumber * accountGoal;
+@property UIImage * accountImage;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
 @end

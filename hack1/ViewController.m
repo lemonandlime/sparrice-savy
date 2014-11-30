@@ -27,8 +27,11 @@
 
 -(void)viewDidLayoutSubviews{
     if (!self.pieChart) {
-        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:58 color:[UIColor greenHappy] description:@"58%"],
-                           [PNPieChartDataItem dataItemWithValue:42 color:[UIColor lightGrayColor] description:@"42%"],
+        double percentProgress = [super percentFinished:self.socialSaving];
+        int finished = (int)(percentProgress*100);
+        int left = 100-finished;
+        NSArray *items = @[[PNPieChartDataItem dataItemWithValue:finished color:[UIColor greenHappy] description:[NSString stringWithFormat:@"%d%@", finished, @"%"]],
+                           [PNPieChartDataItem dataItemWithValue:left color:[UIColor lightGrayColor] description:[NSString stringWithFormat:@"%d%@", left, @"%"]],
                            ];
         
         
@@ -36,8 +39,9 @@
         self.pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(60, 0, self.savingContent.frame.size.width-120, self.savingContent.frame.size.width-120) items:items];
         
         //pieChart.center = self.savingContent.center;
+        
         self.pieChart.descriptionTextColor = [UIColor whiteColor];
-        self.pieChart.descriptionTextFont  = [UIFont boldSystemFontOfSize:31.0];
+        self.pieChart.descriptionTextFont  = [UIFont fontWithName:@"HelveticaNeue-Bold" size:31];
         [self.pieChart strokeChart];
         
         [self.savingContent addSubview:self.pieChart];
@@ -103,7 +107,7 @@ static NSInteger kLabelTag = 2323;
     label.tag = kLabelTag;
     label.backgroundColor = [UIColor clearColor];
     label.opaque = NO;
-    label.font = [UIFont boldSystemFontOfSize:24.0];
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:24];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
     [ovum.dragView addSubview:label];

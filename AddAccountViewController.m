@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.peopleInvited = [NSMutableArray arrayWithArray:@[@""]];
+    self.peopleInvited = [NSMutableArray arrayWithArray:@[@"070-4243114", @"073-9225152"]];
     // Do any additional setup after loading the view.
 }
 
@@ -26,7 +26,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 5;
 }
 
 
@@ -43,6 +43,10 @@
             
         case 2:
             return self.peopleInvited.count+1;
+            break;
+            
+        case 3:
+            return 0;
             break;
             
         default:
@@ -75,7 +79,7 @@
     UIView * view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
     UILabel * title = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 20)];
     title.textColor = [UIColor whiteColor];
-    title.font = [UIFont boldSystemFontOfSize:17];
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:17];
     [view addSubview:title];
     switch (section) {
         case 0:
@@ -105,6 +109,7 @@
         case 0:
         {
             cell.textLabel.text = @"Name";
+            cell.detailTextLabel.text = @"Startup money: Savy";
             break;
         }
             
@@ -113,10 +118,12 @@
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"How much";
+                    cell.detailTextLabel.text = @"50 000 kr";
                     break;
                     
                 default:
                     cell.textLabel.text = @"When";
+                    cell.detailTextLabel.text = @"2015-02-01";
                     break;
                     
             }
@@ -130,8 +137,15 @@
                 NSString * number = self.peopleInvited[indexPath.row];
                 cell.detailTextLabel.text = number.length>0 ? number : @"Add phone number";
             }else{
-                cell.textLabel.text = @"Add more people";
+                return [tableView dequeueReusableCellWithIdentifier:@"addCell"];
+
             }
+            break;
+        }
+        case 4:
+        {
+            return [tableView dequeueReusableCellWithIdentifier:@"sendCell"];
+
             break;
         }
             
@@ -143,6 +157,34 @@
     }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 4) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    UITableViewCell * cell = sender;
+    NSIndexPath * indexPath = [self.tableview indexPathForCell:cell];
+    InputViewController * inputview = segue.destinationViewController;
+    inputview.accountDate = self.accountDate;
+    inputview.accountGoal = self.accountGoal;
+    inputview.accountName = self.accountName;
+    
+    if (indexPath.section == 0) {
+        inputview.sender = @"name";
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 0) {
+            inputview.sender = @"goal";
+        }else{
+            inputview.sender = @"time";
+        }
+    }else if (indexPath.section == 2){
+        inputview.sender = @"number";
+    }
+    
 }
 
 

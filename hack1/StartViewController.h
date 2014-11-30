@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "SocialSavingTableViewCell.h"
+#import "ViewController.h"
 
 @interface StartViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
-
+@property NSDictionary * savingsinfo;
+@property NSArray * socialAccounts;
 @end

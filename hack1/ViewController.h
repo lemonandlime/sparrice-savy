@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *savingContent;
 @property (weak, nonatomic) IBOutlet UIView *addMoneyDragger;
 @property PNPieChart *pieChart;
+@property NSDictionary * socialSaving;
 
 @end
 

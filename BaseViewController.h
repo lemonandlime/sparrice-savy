@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DownloadManager.h"
 
-@interface BaseViewController : UIViewController
-
+@interface BaseViewController : UIViewController <DownloadManagerDelegate>
+-(void) downloadFinished:(NSData*)data withTag:(int)tag;
+-(double)percentFinished:(NSDictionary *)socialSaving;
 @end

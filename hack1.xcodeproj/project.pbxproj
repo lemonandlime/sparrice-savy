@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF22A7F31A2A8EEC00E26A9D /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF22A7F21A2A8EEC00E26A9D /* InputViewController.m */; };
 		DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C41A2A3248002C38AD /* StartViewController.m */; };
 		DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */; };
 		DF88C6CB1A2A58C4002C38AD /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF88C6CA1A2A58C4002C38AD /* BaseViewController.m */; };
@@ -19,6 +20,8 @@
 		DFA4812F1A28E31200198C41 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA4812E1A28E31200198C41 /* Images.xcassets */; };
 		DFA481321A28E31200198C41 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA481301A28E31200198C41 /* LaunchScreen.xib */; };
 		DFA4813E1A28E31300198C41 /* hack1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA4813D1A28E31300198C41 /* hack1Tests.m */; };
+		DFCF364D1A2B16A7003E62D8 /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCF364C1A2B16A7003E62D8 /* DownloadManager.m */; };
+		DFCF36511A2B21C9003E62D8 /* SocialSavingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCF36501A2B21C9003E62D8 /* SocialSavingTableViewCell.m */; };
 		DFF22A4A1A292D450071D242 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A491A292D450071D242 /* QuartzCore.framework */; };
 		DFF22A4C1A292D4E0071D242 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A4B1A292D4E0071D242 /* CoreGraphics.framework */; };
 		DFF22A4E1A292D5B0071D242 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF22A4D1A292D5B0071D242 /* UIKit.framework */; };
@@ -40,8 +43,10 @@
 		096DA8EBC555A886D89AE0C0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C0AF65E75853EA3D190A39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		88370049C858031E7E8119E4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		DF88C6C31A2A3248002C38AD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
-		DF88C6C41A2A3248002C38AD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		DF22A7F11A2A8EEC00E26A9D /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		DF22A7F21A2A8EEC00E26A9D /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		DF88C6C31A2A3248002C38AD /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = hack1/StartViewController.h; sourceTree = "<group>"; };
+		DF88C6C41A2A3248002C38AD /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = hack1/StartViewController.m; sourceTree = "<group>"; };
 		DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewCell.h; sourceTree = "<group>"; };
 		DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewCell.m; sourceTree = "<group>"; };
 		DF88C6C91A2A58C4002C38AD /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -54,14 +59,18 @@
 		DFA481221A28E31200198C41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DFA481231A28E31200198C41 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DFA481261A28E31200198C41 /* hack1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hack1.xcdatamodel; sourceTree = "<group>"; };
-		DFA481281A28E31200198C41 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DFA481291A28E31200198C41 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DFA481281A28E31200198C41 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = hack1/ViewController.h; sourceTree = "<group>"; };
+		DFA481291A28E31200198C41 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = hack1/ViewController.m; sourceTree = "<group>"; };
 		DFA4812C1A28E31200198C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFA4812E1A28E31200198C41 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DFA481311A28E31200198C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DFA481371A28E31300198C41 /* hack1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hack1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA4813C1A28E31300198C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA4813D1A28E31300198C41 /* hack1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hack1Tests.m; sourceTree = "<group>"; };
+		DFCF364B1A2B16A7003E62D8 /* DownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		DFCF364C1A2B16A7003E62D8 /* DownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
+		DFCF364F1A2B21C9003E62D8 /* SocialSavingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSavingTableViewCell.h; sourceTree = "<group>"; };
+		DFCF36501A2B21C9003E62D8 /* SocialSavingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSavingTableViewCell.m; sourceTree = "<group>"; };
 		DFF22A491A292D450071D242 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DFF22A4B1A292D4E0071D242 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DFF22A4D1A292D5B0071D242 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -115,12 +124,19 @@
 		DFA481121A28E31200198C41 = {
 			isa = PBXGroup;
 			children = (
+				DF88C6C31A2A3248002C38AD /* StartViewController.h */,
+				DF88C6C41A2A3248002C38AD /* StartViewController.m */,
+				DFCF364B1A2B16A7003E62D8 /* DownloadManager.h */,
+				DFCF364C1A2B16A7003E62D8 /* DownloadManager.m */,
+				DF22A7F11A2A8EEC00E26A9D /* InputViewController.h */,
+				DF22A7F21A2A8EEC00E26A9D /* InputViewController.m */,
 				DF88C6CC1A2A5A6C002C38AD /* AddAccountViewController.h */,
 				DF88C6CD1A2A5A6C002C38AD /* AddAccountViewController.m */,
 				DF88C6C91A2A58C4002C38AD /* BaseViewController.h */,
 				DF88C6CA1A2A58C4002C38AD /* BaseViewController.m */,
-				DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */,
-				DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */,
+				DFA481281A28E31200198C41 /* ViewController.h */,
+				DFA481291A28E31200198C41 /* ViewController.m */,
+				DFCF364E1A2B21A3003E62D8 /* Cells */,
 				DFA4811D1A28E31200198C41 /* hack1 */,
 				DFA4813A1A28E31300198C41 /* hack1Tests */,
 				DFA4811C1A28E31200198C41 /* Products */,
@@ -143,15 +159,11 @@
 			children = (
 				DFA481221A28E31200198C41 /* AppDelegate.h */,
 				DFA481231A28E31200198C41 /* AppDelegate.m */,
-				DFA481281A28E31200198C41 /* ViewController.h */,
-				DFA481291A28E31200198C41 /* ViewController.m */,
 				DFA4812B1A28E31200198C41 /* Main.storyboard */,
 				DFA4812E1A28E31200198C41 /* Images.xcassets */,
 				DFA481301A28E31200198C41 /* LaunchScreen.xib */,
 				DFA481251A28E31200198C41 /* hack1.xcdatamodeld */,
 				DFA4811E1A28E31200198C41 /* Supporting Files */,
-				DF88C6C31A2A3248002C38AD /* StartViewController.h */,
-				DF88C6C41A2A3248002C38AD /* StartViewController.m */,
 			);
 			path = hack1;
 			sourceTree = "<group>";
@@ -180,6 +192,17 @@
 				DFA4813C1A28E31300198C41 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DFCF364E1A2B21A3003E62D8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DF88C6C61A2A5478002C38AD /* AddTableViewCell.h */,
+				DF88C6C71A2A5478002C38AD /* AddTableViewCell.m */,
+				DFCF364F1A2B21C9003E62D8 /* SocialSavingTableViewCell.h */,
+				DFCF36501A2B21C9003E62D8 /* SocialSavingTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,10 +344,13 @@
 				DFA481241A28E31200198C41 /* AppDelegate.m in Sources */,
 				DFA481271A28E31200198C41 /* hack1.xcdatamodeld in Sources */,
 				DF88C6CE1A2A5A6C002C38AD /* AddAccountViewController.m in Sources */,
+				DFCF364D1A2B16A7003E62D8 /* DownloadManager.m in Sources */,
 				DF88C6C51A2A3248002C38AD /* StartViewController.m in Sources */,
+				DFCF36511A2B21C9003E62D8 /* SocialSavingTableViewCell.m in Sources */,
 				DF88C6C81A2A5478002C38AD /* AddTableViewCell.m in Sources */,
 				DFA4812A1A28E31200198C41 /* ViewController.m in Sources */,
 				DF88C6CB1A2A58C4002C38AD /* BaseViewController.m in Sources */,
+				DF22A7F31A2A8EEC00E26A9D /* InputViewController.m in Sources */,
 				DFA481211A28E31200198C41 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

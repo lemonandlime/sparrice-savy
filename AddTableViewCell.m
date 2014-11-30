@@ -7,13 +7,16 @@
 //
 
 #import "AddTableViewCell.h"
+#import <Colours.h>
 
 @implementation AddTableViewCell
 
 - (void)awakeFromNib {
+    self.whiteRoundView.backgroundColor = [UIColor pinkPiggy];
     self.whiteRoundView.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.whiteRoundView.layer.cornerRadius = 12.;
+    self.whiteRoundView.layer.cornerRadius = 24.;
     self.whiteRoundView.layer.borderWidth = 1.;
+    self.whiteRoundView.layer.masksToBounds = true;
     
 }
 

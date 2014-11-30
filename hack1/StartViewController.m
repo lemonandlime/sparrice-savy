@@ -8,14 +8,40 @@
 
 #import "StartViewController.h"
 
+//static NSString * url = @"https://socialsaving.mybluemix.net/balance";
+static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBalance.json";
+
 @interface StartViewController ()
 
 @end
 
 @implementation StartViewController
 
+
+-(void) downloadFinished:(NSData*)data withTag:(int)tag{
+    if (data) {
+        NSError * error;
+        NSDictionary * jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSLog(@"URL Response :  %@ error %@",jsonData, error);
+        self.savingsinfo = jsonData[@"Result"];
+        self.socialAccounts = self.savingsinfo[@"social_accounts"];
+        [self.tableview reloadData];
+        
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!self.socialAccounts) {
+        self.socialAccounts = @[];
+    }
+    
+    if (!self.savingsinfo) {
+        DownloadManager  * DM = [[DownloadManager alloc] initWithDelegate:self];
+        NSURLRequest * request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+        [DM startDownloadWithRequest:request tag:1];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -40,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
         case 0:
-            return 2;
+            return self.socialAccounts.count;
             break;
             
         default:
@@ -68,8 +94,28 @@
     if (indexPath.section == 1) {
         return [tableView dequeueReusableCellWithIdentifier:@"addCell"];
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"savingCell"];
+    SocialSavingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"savingCell"];
+    cell.title.text = self.socialAccounts[indexPath.row][@"name"];
+
+    double percentProgress = [super percentFinished:self.socialAccounts[indexPath.row]];
+//    CGRect rect = cell.overlay.frame;
+//    rect.size.width = 100;
+//    //[UIView animateWithDuration:.3 animations:^{
+//        cell.overlay.frame = rect;
+//    //}];
+    
+    cell.subTitle.text = [NSString stringWithFormat:@"%.d%@",(int)(100*percentProgress),@"%Saved"];
     return cell;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"socialAccount"]) {
+        UITableViewCell * cell = sender;
+        NSIndexPath * indexPath = [self.tableview indexPathForCell:cell];
+        ViewController * nextView = segue.destinationViewController;
+        nextView.socialSaving = self.socialAccounts[indexPath.row];
+    }
+}
+
 
 @end
