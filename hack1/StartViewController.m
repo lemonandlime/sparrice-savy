@@ -122,7 +122,7 @@ static NSString * url = @"https://dl.dropboxusercontent.com/u/7985407/savy-getBa
         UITableViewCell * cell = sender;
         NSIndexPath * indexPath = [self.tableview indexPathForCell:cell];
         ViewController * nextView = segue.destinationViewController;
-        nextView.socialSaving = self.socialAccounts[indexPath.row];
+        nextView.socialSaving = [self.socialAccounts[indexPath.row] mutableCopy];
     }
 }
 

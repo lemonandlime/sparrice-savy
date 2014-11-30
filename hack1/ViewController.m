@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+BOOL hasChanges;
+
 @interface ViewController ()
 
 @end
@@ -27,6 +29,11 @@
 
 -(void)viewDidLayoutSubviews{
     if (!self.pieChart) {
+        if (self.pieChart) {
+            [self.pieChart removeFromSuperview];
+            self.pieChart = nil;
+        }
+        
         double percentProgress = [super percentFinished:self.socialSaving];
         int finished = (int)(percentProgress*100);
         int left = 100-finished;
@@ -82,8 +89,8 @@
     
     [UIView animateWithDuration:0.25 animations:^{
         dragView.center = location;
-        dragView.transform = CGAffineTransformMakeScale(0.80, 0.80);
-        dragView.alpha = 0.75;
+        dragView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        dragView.alpha = 1;
     }];
 }
 
@@ -99,7 +106,7 @@ static NSInteger kLabelTag = 2323;
     
     CGFloat red = 0.33 + 0.66 * location.y / self.view.frame.size.height;
     view.layer.borderColor = [UIColor colorWithRed:red green:0.0 blue:0.0 alpha:1.0].CGColor;
-    view.layer.borderWidth = 5.0;
+    view.layer.borderWidth = 0.0;
     
     CGRect labelFrame = CGRectMake(ovum.dragView.bounds.origin.x, ovum.dragView.bounds.origin.y, ovum.dragView.bounds.size.width, ovum.dragView.bounds.size.height / 2);
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
@@ -128,7 +135,7 @@ static NSInteger kLabelTag = 2323;
         if (false)
         {
             view.layer.borderColor = [UIColor pinkPiggy].CGColor;
-            view.layer.borderWidth = 5.0;
+            view.layer.borderWidth = 0.0;
             
             
             return OBDropActionNone;
@@ -136,7 +143,7 @@ static NSInteger kLabelTag = 2323;
     }
     
     view.layer.borderColor = [UIColor pinkPiggy].CGColor;
-    view.layer.borderWidth = 5.0;
+    view.layer.borderWidth = 0.0;
     
     //UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
     //label.text = [NSString stringWithFormat:@"Ovum at %@", NSStringFromCGPoint(location)];
@@ -164,6 +171,8 @@ static NSInteger kLabelTag = 2323;
         } completion:^(BOOL boolean){
             [UIView animateWithDuration:.3 animations:^(void) {
                 self.pieChart.transform = CGAffineTransformScale(view.transform, 1.0, 1.0);
+            } completion:^(BOOL finished){
+                [self addOnePercent];
             }];}];
     }
 //    NSLog(@"Ovum<0x%x> %@ Dropped", (int)ovum, ovum.dataObject);
@@ -173,7 +182,8 @@ static NSInteger kLabelTag = 2323;
 //    
 //    UILabel *label = (UILabel*) [ovum.dragView viewWithTag:kLabelTag];
 //    [label removeFromSuperview];
-//    
+//
+    [ovum.dragView removeFromSuperview];
     if ([ovum.dataObject isKindOfClass:[NSNumber class]])
     {
         UIView *itemView = [self.view viewWithTag:[ovum.dataObject integerValue]];
@@ -188,21 +198,46 @@ static NSInteger kLabelTag = 2323;
             
         }
     }
-//    else if ([ovum.dataObject isKindOfClass:[UIColor class]])
-//    {
-//        // An item from AdditionalSourcesViewController
-//        UIView *itemView = [self createItemView];
-//        itemView.backgroundColor = ovum.dataObject;
-//        NSInteger insertionIndex = rightViewContents.count;
-//        [rightView insertSubview:itemView atIndex:insertionIndex];
-//        [rightViewContents insertObject:itemView atIndex:insertionIndex];
-//    }
+
 }
 
 
 -(void) handleDropAnimationForOvum:(OBOvum*)ovum withDragView:(UIView*)dragView dragDropManager:(OBDragDropManager*)dragDropManager
 {
 
+}
+
+-(void)addOnePercent{
+    NSNumber * goal = self.socialSaving[@"goal"];
+    double addingSum = [goal doubleValue]/100;
+    NSNumber * presentSaved = self.socialSaving[@"money_saved"];
+    double newSavedSum = [presentSaved doubleValue]+addingSum;
+    self.socialSaving[@"money_saved"] = [NSNumber numberWithDouble:newSavedSum];
+    
+    if (self.pieChart) {
+        [self.pieChart removeFromSuperview];
+        self.pieChart = nil;
+    }
+    
+    double percentProgress = [super percentFinished:self.socialSaving];
+    int finished = (int)(percentProgress*100);
+    int left = 100-finished;
+    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:finished color:[UIColor greenHappy] description:[NSString stringWithFormat:@"%d%@", finished, @"%"]],
+                       [PNPieChartDataItem dataItemWithValue:left color:[UIColor lightGrayColor] description:[NSString stringWithFormat:@"%d%@", left, @"%"]],
+                       ];
+    
+    
+    //PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 40.0, 240.0, 240.0) items:items];
+    self.pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(60, 0, self.savingContent.frame.size.width-120, self.savingContent.frame.size.width-120) items:items];
+    
+    //pieChart.center = self.savingContent.center;
+    
+    self.pieChart.descriptionTextColor = [UIColor whiteColor];
+    self.pieChart.descriptionTextFont  = [UIFont fontWithName:@"HelveticaNeue-Bold" size:31];
+    [self.pieChart strokeChart];
+    
+    [self.savingContent addSubview:self.pieChart];
+    [self.view sendSubviewToBack:self.savingContent];
 }
 
 
